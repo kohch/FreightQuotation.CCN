@@ -8,9 +8,9 @@ function onDeviceReady() {
 	
 }
 
-var airlinesApp = function(){}
+var quotationApp = function(){}
 
-airlinesApp.prototype = function() {
+quotationApp.prototype = function() {
     var _flightForCheckin = null,
     _flightForDetails=null,
     _ffNum = null, 
@@ -74,7 +74,7 @@ airlinesApp.prototype = function() {
 	    	$('#login').submit(function () {
 	    		$(this).hide();
 	    		_login = true;
-	    		airData.logOn($('#userName').val(), $('#pwd').val(),_handleLogOn);
+	    		quotationData.logOn($('#userName').val(), $('#pwd').val(),_handleLogOn);
 	    		return false;
 	    	});
 	    }
@@ -93,7 +93,7 @@ airlinesApp.prototype = function() {
     _handleLogOn = function (ff, success) {
 		if (success) {
 			_ffNum = ff;
-			airData.getDataforFF(_ffNum,_handleDataForFF);
+			quotationData.getDataforFF(_ffNum,_handleDataForFF);
 		}
 	},
     
@@ -101,10 +101,10 @@ airlinesApp.prototype = function() {
         $flightList = $('#myTripsListView');
 		_customerData = data;
 		$('#ffname').text(data.firstName);
-		$('#ffnum').text(data.ffNum);
-		$('#currentStatus').text(data.status);
-		$('#miles').text(data.miles);
-		$('#numberOfFlights').text(data.flights.length);
+		//$('#ffnum').text(data.ffNum);
+		//$('#currentStatus').text(data.status);
+		//$('#miles').text(data.miles);
+		//$('#numberOfFlights').text(data.flights.length);
 		for (var i in data.flights) {
 			var flight = data.flights[i],
             currentSegment = flight.segments[flight.currentSegment];
